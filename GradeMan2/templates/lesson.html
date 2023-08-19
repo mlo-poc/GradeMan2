@@ -170,42 +170,42 @@ function renderAttendances(aa) {
         out += '<div class="img" id="'+aa[i].sid+'" style="float:left;"></div>\n<div class="student">\n';
         out += '<input type="hidden" name="lid" class="formdata" value="'+aa[i].lid+'" />';
         out += '<input type="hidden" name="sid" class="formdata" value="'+aa[i].sid+'" />';
-        out += '<div style="float:left; width:12rem; max-width:100%%;">'+'<a href="../student/'+aa[i].sid+'">\
+        out += '<div style="float:left; width:12rem; max-width:100%%;">'+'<a tabindex="-1" href="../student/'+aa[i].sid+'">\
                 '+aa[i].givenname+' '+aa[i].familyname+'</a></div>\n';
         if (aa[i].attendant == 'False') 
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="attendant" class="formdata" value="True" /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="attendant" class="formdata" value="True" /></div>\n';
         else
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="attendant" class="formdata" value="True" checked /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="attendant" class="formdata" value="True" checked /></div>\n';
         if (aa[i].excused == 'True')
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="excused" class="formdata" value="True" checked /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="excused" class="formdata" value="True" checked /></div>\n';
         else
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="excused" class="formdata" value="True" /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="excused" class="formdata" value="True" /></div>\n';
         if (aa[i].homework == 'False')
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="homework" class="formdata" value="True" /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="homework" class="formdata" value="True" /></div>\n';
         else
-            out += '<div style="float:left; width:1.5rem;"><input type="checkbox" name="homework" class="formdata" value="True" checked /></div>\n';
+            out += '<div style="float:left; width:1.5rem;"><input tabindex="-1" type="checkbox" name="homework" class="formdata" value="True" checked /></div>\n';
         // performance:
         out += '<div style="float:left;">\n';
         out += '<div style="float:left;">\n\
-                <input type="text" name="performance" id="performanceText'+aa[i].sid+'" class="formdata" \
+                <input tabindex="0" type="text" name="performance" id="performanceText'+aa[i].sid+'" class="formdata" \
                 oninput="renderRange(\'performance\', \''+aa[i].sid+'\', '+graduate+', this.value)" \
                 style="width:2rem;">\n';
-        out += '<input type="range" id="performanceRange'+aa[i].sid+'" min="'+(low)+'" max="'+high+'" \
+        out += '<input tabindex="-1" type="range" id="performanceRange'+aa[i].sid+'" min="'+(low)+'" max="'+high+'" \
                 oninput="renderRange(\'performance\', \''+aa[i].sid+'\', '+graduate+', this.value)" \
                 style="width:9rem;">\n</div>\n';
         // participation:
         out += '<div style="float:left;">\n\
-                <input type="text" name="participation" id="participationText'+aa[i].sid+'" class="formdata" \
+                <input tabindex="0" type="text" name="participation" id="participationText'+aa[i].sid+'" class="formdata" \
                 oninput="renderRange(\'participation\', \''+aa[i].sid+'\', '+graduate+', this.value)" \
                 style="width:2rem;">\n';
-        out += '<input type="range" id="participationRange'+aa[i].sid+'" min="'+(low)+'" max="'+high+'" \
+        out += '<input tabindex="-1" type="range" id="participationRange'+aa[i].sid+'" min="'+(low)+'" max="'+high+'" \
                 oninput="renderRange(\'participation\', \''+aa[i].sid+'\', '+graduate+', this.value)" \
                 style="width:9rem;">\n</div>\n';
         out += '</div>';
-        out += '<input type="text" name="memo" class="formdata" value="'+aa[i].memo+'" style="width:100%; max-width:100%;"/><br />\n';
+        out += '<input tabindex="-1" type="text" name="memo" class="formdata" value="'+aa[i].memo+'" style="width:100%; max-width:100%;"/><br />\n';
         out += '</div>\n<hr style="clear:both;" />\n';
     }
-    out += '<button onclick="saveAttendances()" style="clear:both;">Speichern</button><br />\n';
+    out += '<button tabindex="0" onclick="saveAttendances()" style="clear:both;">Speichern</button><br />\n';
     out += '</div>';
     out += '<p>Legende: A=Anwesend, E=Entschuldigt, H=Hausaufgabe, F=Fachliche Leistung, M=Mitarbeit</p>\n';
     content.innerHTML = out;
@@ -262,7 +262,7 @@ if (l.lid == '') {
         <a onclick="show()">Anzeigen</a> | \
         <a onclick="edit()">Bearbeiten</a> | \
         <a onclick="showAttendances()">Teilnahmen</a> | \
-        <a href="../class/'+cl.cid+'">&rarr; '+cl.name+' '+cl.subject+'</a>';
+        <a tabindex="-1" href="../class/'+cl.cid+'">&rarr; '+cl.name+' '+cl.subject+'</a>';
     show();
 }    
 
