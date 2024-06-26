@@ -2,7 +2,7 @@
 
 # Script to build GradeMan2-deb-file
 # insert apropriate version no:
-version='dev'
+version='dev_'$(git rev-parse --short HEAD)
 
 echo 'TODO: sed the version to all files where necessary'
 
